@@ -1,0 +1,66 @@
+{
+  "rung": "rung9-telephone",
+  "title": "The Telephone Game: spec via messy chat transcript",
+  "axis": "ecological validity: requirements arrive the way humans actually talk",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 21,
+  "gradeTotal": 21,
+  "gradeSteps": [
+    {
+      "step": "S1 addTask due field",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S2 invalid dates become null",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S3 listOverdue",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S4 formatTask due suffix (bracket revision)",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S5 parse 'by <date>'",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    },
+    {
+      "step": "S6 runCommand wires due through",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S7 overdue command",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "baseline tests still pass",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 6184,
+  "durationMs": 103246,
+  "numTurns": 17,
+  "callError": null
+}

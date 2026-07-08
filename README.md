@@ -87,7 +87,7 @@ agentic runs — far heavier on usage than the one-shot suites.**
 
 ## The Gauntlet (Low or Bust 3)
 
-Low-only stress test: a five-rung difficulty ladder that spends tokens ONLY at
+Low-only stress test: a difficulty ladder (nine rungs and counting) that spends tokens ONLY at
 the cracks. Each rung gets one run at low; a failure triggers two more low
 trials (noise vs wall) plus one high trial (effort wall vs capability wall).
 
@@ -104,8 +104,14 @@ dependent feature chain in one session, graded per-step to plot a context-bloat
 degradation curve; (4) an underspecified rate-limiting feature graded on
 behavior (rolling window, per-user isolation) via hidden acceptance tests;
 (5) adversarial predict-the-output snippets (all answers established by
-executing them). QA: reference solutions score 100% on every rung; pristine
-fixtures fail every rung.
+executing them); (6) "The Labyrinth" — three interacting bugs plus a decoy
+report across 38 files; (7) "The Revision Chain" — 24 steps where later spec
+revisions contradict earlier ones (plus a `rung7-guarded` variant validating
+LOW-GUARD); (8) "The Liar" — the README, comments, and a test expectation are
+confidently wrong and point away from the real bug; (9) "The Telephone Game" —
+the spec arrives as a messy chat transcript with typos, self-corrections, and
+a reference to a message never sent. QA: reference solutions score 100% on
+every rung; pristine fixtures fail every rung.
 
 ## Notes
 

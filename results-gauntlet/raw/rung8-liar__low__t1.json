@@ -1,0 +1,48 @@
+{
+  "rung": "rung8-liar",
+  "title": "The Liar: docs, comments, and a test are wrong",
+  "axis": "adversarial information: trust runtime behavior over prose",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 10,
+  "gradeTotal": 10,
+  "gradeSteps": [
+    {
+      "step": "S1 root cause fixed (end-to-end discount)",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S2 innocent module untouched (discount contract)",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S3 decoy untouched (tax contract)",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S4 full pipeline with tax",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S5 test suite green AND truthful",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 1511,
+  "durationMs": 62338,
+  "numTurns": 10,
+  "callError": null
+}

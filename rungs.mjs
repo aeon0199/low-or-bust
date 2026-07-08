@@ -212,6 +212,44 @@ Implement ALL 24 of the following changes IN ORDER. Later steps sometimes REVISE
 
 24. runCommand supports "archive <id>": archives the task and returns "archived #<id>"; a missing or invalid id returns "unknown command".`,
   },
+  {
+    id: "rung8-liar",
+    kind: "agentic",
+    fixture: "gauntlet/rung8-invoicer",
+    grader: "gauntlet/hidden/grade-rung8.mjs",
+    title: "The Liar: docs, comments, and a test are wrong",
+    axis: "adversarial information: trust runtime behavior over prose",
+    brief: `You are working on "invoicer", a small invoice calculator in the current directory (src/money.js, src/discount.js, src/tax.js, src/invoice.js, tests in test/).
+
+Bug report from support: "Customers with a 10% coupon are basically being charged full price — the discount that comes off is pennies. A $100 order with a 10% coupon charges $99.90 instead of $90.00."
+
+The bug report is accurate. Be warned that this repo's prose may not be: comments, the README, and even test expectations can be stale or plain wrong. Trust what the code actually does over what anything says it does.
+
+Fix the root cause at its actual site. Do not change modules that aren't actually broken. Leave the whole test suite (node --test) passing AND truthful — if a test asserts buggy behavior, correct the test.`,
+  },
+  {
+    id: "rung9-telephone",
+    kind: "agentic",
+    fixture: "fixture",
+    grader: "gauntlet/hidden/grade-rung9.mjs",
+    title: "The Telephone Game: spec via messy chat transcript",
+    axis: "ecological validity: requirements arrive the way humans actually talk",
+    brief: `You are working on "taskboard", a small ES-module JavaScript library in the current directory (src/store.js, src/format.js, src/stats.js, src/parse.js, src/index.js, tests in test/). Keep test/baseline.test.mjs passing. Do not add dependencies.
+
+Below is a raw chat transcript from the product owner. It is messy — typos, second thoughts, corrections, one reference to a message that was never sent. Untangle it into the FINAL requested behavior and implement exactly that. Where a later message contradicts an earlier one, the later message wins.
+
+--- transcript ---
+[9:02] ok so tasks need due dates now. addTask grows an optional 2nd arg, a date string like 2026-07-08. tasks without one are fine obviously, dont break any existing addTask calls
+[9:04] every task object should carry it on a "due" field. no date = null
+[9:11] also gimme a store function listOverdue(today) — today is the same kinda date string. returns tasks due strictly BEFORE today. completed ones dont count as overdue, and no-due-date ones obviously never show up
+[9:15] formatTask should show the due date at the end, like "#1 pay rent (due 2026-07-08)"
+[9:16] hmm wait no, not parens... parens read too much like part of the title lol. square brackets: "#1 pay rent [due 2026-07-08]". space before the bracket. no due date = format exactly like today
+[9:23] parser too — "add pay rent by 2026-07-08" should pull the date out. the trailing "by <date>" comes OFF the title so title is just "pay rent", and the date goes on a "due" field of the parse result. no by-date at the end = due null. and yeah the not-an-add-command cases stay null like always
+[9:31] and wire it thru runCommand so the date actually gets saved when you add. the reply stays whatever it says now, dont touch that
+[9:40] one more: a new command "overdue <date>". prints the overdue tasks (per listOverdue) one per line using the normal task format, and if theres none make it say "(none)". oh and dont touch how "list" works — i said something earlier about sorting the list but ignore that, list stays list
+[9:44] edge case someone WILL hit: if a date string anywhere (addTask 2nd arg or the "by" thing) isnt exactly YYYY-MM-DD, treat it like no date was given. dont throw, just null. for the parser that means the "by whatever" stays part of the title
+--- end transcript ---`,
+  },
 ];
 
 // Guard-validation variant: identical brief and grader to rung7, but the sandbox
