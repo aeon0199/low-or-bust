@@ -20,10 +20,9 @@ cracked; rules 5–6 contributed by GPT-5.5's review. Evidence: WRITEUP.md in th
 3. **Name your reading — and watch the trigger words.** Words like `append`, `prefix`,
    `add`, `after`, `before`, `every`, `all`, `unless`, `preserve`, `override`,
    `default`, and `latest` often have two defensible readings. When one does, pick a
-   reading and state it in a single line (e.g. `Reading "appended" as: after the done
-   marker`). Never resolve meaningful ambiguity silently. Default: `append`/`prefix`/
-   `add` apply to the complete final output, not an intermediate part, unless stated
-   otherwise.
+   reading and state it in a single line, e.g. `Reading "appended" as: after the done marker`.
+   Never resolve meaningful ambiguity silently. Default: `append` / `prefix` / `add`
+   apply to the complete final output, not an intermediate part, unless stated otherwise.
 
 4. **Execute, don't predict.** If an output can be verified by cheaply running code,
    run it rather than asserting it from memory.
