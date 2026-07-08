@@ -18,10 +18,15 @@
 import { execFile, execFileSync } from "node:child_process";
 import { mkdirSync, existsSync, readFileSync, writeFileSync, readdirSync, rmSync, cpSync, statSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const RESULTS = join(ROOT, "results-amnesia");
+// Sandboxes live OUTSIDE the project tree so headless sessions inherit no
+// project identity: no repo, no auto-memory index, no relative path back to
+// fixtures or hidden graders (leak found + closed 2026-07-08).
+const SANDBOX_ROOT = join(tmpdir(), "lob-sandboxes", "results-amnesia");
 const PATH_ENV = `${process.env.PATH}:/opt/homebrew/bin:/usr/local/bin`;
 
 const WO1 = `WORK ORDER #1 — Reminders. (This is the first of several work orders that will arrive on this codebase over time.)
@@ -103,7 +108,7 @@ function grade(sandbox) {
 
 async function runCell(cond, trial) {
   const spec = CONDITIONS[cond];
-  const sandbox = join(RESULTS, "sandboxes", `${cond}__${effort}__t${trial}`);
+  const sandbox = join(SANDBOX_ROOT, `${cond}__${effort}__t${trial}`);
   rmSync(sandbox, { recursive: true, force: true });
   cpSync(join(ROOT, "fixture"), sandbox, { recursive: true });
   const sittings = [];
@@ -132,7 +137,7 @@ async function runCell(cond, trial) {
 
 async function cmdRun() {
   mkdirSync(join(RESULTS, "raw"), { recursive: true });
-  mkdirSync(join(RESULTS, "sandboxes"), { recursive: true });
+  mkdirSync(SANDBOX_ROOT, { recursive: true });
   for (const cond of wanted) {
     if (!CONDITIONS[cond]) die(`Unknown condition "${cond}". Available: ${Object.keys(CONDITIONS).join(", ")}`);
     for (let t = 1; t <= trials; t++) {

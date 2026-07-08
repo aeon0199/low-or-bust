@@ -13,11 +13,16 @@
 import { execFile, execFileSync } from "node:child_process";
 import { mkdirSync, existsSync, readFileSync, writeFileSync, readdirSync, rmSync, cpSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
 import { rungs } from "./rungs.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const RESULTS = join(ROOT, "results-gauntlet");
+// Sandboxes live OUTSIDE the project tree so headless sessions inherit no
+// project identity: no repo, no auto-memory index, no relative path back to
+// fixtures or hidden graders (leak found + closed 2026-07-08).
+const SANDBOX_ROOT = join(tmpdir(), "lob-sandboxes", "results-gauntlet");
 const PATH_ENV = `${process.env.PATH}:/opt/homebrew/bin:/usr/local/bin`;
 
 const [, , command = "help", ...rest] = process.argv;
@@ -86,7 +91,7 @@ async function runTrial(rung, effort, trial) {
   const started = Date.now();
   let call, grade, sandbox = null;
   if (rung.kind === "agentic") {
-    sandbox = join(RESULTS, "sandboxes", `${rung.id}__${effort}__t${trial}`);
+    sandbox = join(SANDBOX_ROOT, `${rung.id}__${effort}__t${trial}`);
     rmSync(sandbox, { recursive: true, force: true });
     cpSync(join(ROOT, rung.fixture), sandbox, { recursive: true });
     call = await claudeCall(rung.brief, effort, { cwd: sandbox, agentic: true });
@@ -111,7 +116,7 @@ const passed = (r) => r.score === 100 && !r.callError;
 
 async function cmdRun() {
   mkdirSync(join(RESULTS, "raw"), { recursive: true });
-  mkdirSync(join(RESULTS, "sandboxes"), { recursive: true });
+  mkdirSync(SANDBOX_ROOT, { recursive: true });
   for (const rung of suite) {
     const existing = loadResults().filter((r) => r.rung === rung.id);
     if (!opts["force-trials"] && existing.some(passed) && existing.some((r) => r.effort === "low")) {

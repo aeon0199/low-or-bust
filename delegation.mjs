@@ -13,12 +13,17 @@
 import { execFile, execFileSync } from "node:child_process";
 import { mkdirSync, existsSync, readFileSync, writeFileSync, readdirSync, rmSync, cpSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
 import { packages, CONDITIONS } from "./packages.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const FIXTURE = join(ROOT, "fixture");
 const RESULTS = join(ROOT, "results-delegation");
+// Sandboxes live OUTSIDE the project tree so headless sessions inherit no
+// project identity: no repo, no auto-memory index, no relative path back to
+// fixtures or hidden graders (leak found + closed 2026-07-08).
+const SANDBOX_ROOT = join(tmpdir(), "lob-sandboxes", "results-delegation");
 const PATH_ENV = `${process.env.PATH}:/opt/homebrew/bin:/usr/local/bin`;
 
 // ---------------------------------------------------------------- cli parsing
@@ -95,7 +100,7 @@ async function pool(items, limit, fn) {
 // ------------------------------------------------------------------------ run
 async function runCell({ pkg, cond, trial }) {
   const key = `${pkg.id}__${cond.id}__t${trial}`;
-  const sandbox = join(RESULTS, "sandboxes", key);
+  const sandbox = join(SANDBOX_ROOT, key);
   rmSync(sandbox, { recursive: true, force: true });
   cpSync(FIXTURE, sandbox, { recursive: true });
 
@@ -125,7 +130,7 @@ async function runCell({ pkg, cond, trial }) {
 
 async function cmdRun() {
   mkdirSync(join(RESULTS, "raw"), { recursive: true });
-  mkdirSync(join(RESULTS, "sandboxes"), { recursive: true });
+  mkdirSync(SANDBOX_ROOT, { recursive: true });
   const cells = [];
   for (const pkg of suitePkgs)
     for (const cond of conds)
