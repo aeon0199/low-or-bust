@@ -1,0 +1,6 @@
+{
+  "name": "hubapi",
+  "version": "0.9.2",
+  "type": "module",
+  "description": "In-memory resource API: 20 resources behind a common router, validator, and store."
+}

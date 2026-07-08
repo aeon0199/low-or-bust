@@ -1,0 +1,66 @@
+{
+  "taskId": "write-launch-email",
+  "category": "writing",
+  "title": "Product announcement email",
+  "effort": "low",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "Subject: Your notes now work anywhere — even offline ✈️\n\nHi there,\n\nEver lost a great idea because your signal dropped? Not anymore. Offline Mode is now live in Notely.\n\nHere's how it works: open Notely anywhere — on a plane, in the subway, at that café with mysteriously bad Wi-Fi — and write as usual. The moment you're back online, everything syncs automatically. No save buttons, no \"conflicted copy\" headaches, no lost words.\n\nA few things worth knowing:\n\n- **It just syncs.** Your notes update across devices the instant you reconnect.\n- **Mobile and desktop.** Offline Mode works everywhere Notely does.\n- **Free for everyone.** This isn't a paid-tier perk — it's available today on every plan, including free.\n\nNo setup required. Just update your app and start writing.\n\n**[Try Offline Mode now →]**\n\nHappy note-taking,\nThe Notely Team",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3703,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 318,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3703,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 318,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3703,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3703
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 639,
+      "outputTokens": 17,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000724,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 318,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3703,
+      "webSearchRequests": 0,
+      "costUSD": 0.153223,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.153947,
+  "durationMs": 9565,
+  "score": 88,
+  "scoreDetail": "completeness: 9/10, tone: 8/10, structure: 9/10, length compliance: 9/10 — All three key points are covered clearly and prominently with a strong subject line and single CTA; tone is warm and mostly restrained, with only minor stylistic flourish keeping it from a perfect score."
+}

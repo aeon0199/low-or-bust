@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-puzzle-hunt",
+  "category": "reasoning",
+  "title": "Five-person finish order",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "This is a pure logic puzzle, so I'll just work it through.\n\n**Setting up:** From clue 1, Priya is immediately after Quinn (P = Q + 1). From clue 3, Sam is before Quinn, so Quinn can't be 1st. Clue 6 says Quinn isn't 2nd either. Since Priya must fit right after Quinn, Quinn can only be 3rd or 4th.\n\n**Try Quinn = 4th, Priya = 5th:** Then Tao (clue 4: first or last) must be 1st, since 5th is taken. Sam is before Quinn, so Sam is 2nd or 3rd — but Rosa would then have to take the other of 2nd/3rd, violating clue 2 (Rosa not in the top two). Contradiction, so this case is out.\n\n**So Quinn = 3rd, Priya = 4th:** Rosa can't be in the top two, and 3rd/4th are taken, so Rosa is 5th. Tao must then be 1st (clue 4). That leaves Sam in 2nd — which satisfies clue 3 (Sam before Quinn).\n\n**Final order:** 1. Tao, 2. Sam, 3. Quinn, 4. Priya, 5. Rosa\n\nChecking every clue:\n1. Priya (4th) immediately after Quinn (3rd) ✓\n2. Rosa is 5th, not top two ✓\n3. Sam (2nd) before Quinn (3rd) ✓\n4. Tao is 1st ✓\n5. Between Rosa (5th) and Sam (2nd) are positions 3 and 4 — exactly two people ✓\n6. Quinn is 3rd, not 2nd ✓\n\nAll six clues hold, and the other case was eliminated, so the solution is unique.\n\nANSWER: Priya",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3765,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 938,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3765,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 938,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3765,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3765
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 668,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000748,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 938,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3765,
+      "webSearchRequests": 0,
+      "costUSD": 0.185463,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.186211,
+  "durationMs": 19690,
+  "score": 100,
+  "scoreDetail": "answered \"priya\", expected \"priya\""
+}

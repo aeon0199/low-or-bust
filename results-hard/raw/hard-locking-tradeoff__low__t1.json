@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-locking-tradeoff",
+  "category": "writing",
+  "title": "Optimistic vs pessimistic locking, exactly 3 paragraphs",
+  "effort": "low",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "Optimistic and pessimistic locking are two answers to the same problem you just hit — two writers reading the same row and the last one silently overwriting the first. Pessimistic locking takes an exclusive lock when you read (e.g. `SELECT ... FOR UPDATE`), so anyone else who wants that row blocks until your transaction commits or rolls back. Optimistic locking takes no lock at all: you read a version number along with the data, and your update runs as `UPDATE ... SET ..., version = version + 1 WHERE id = ? AND version = ?` — if zero rows match, someone changed it first and you must retry or surface an error.\n\nEach fails differently. Pessimistic: a user opens an edit form that grabs a `FOR UPDATE` lock, then goes to lunch; every other request touching that row hangs until the transaction times out. Optimistic: two clerks both load inventory at version 7, both edit, the second save fails its version check and the clerk loses ten minutes of typing to a \"please retry\" error.\n\nRule of thumb: under low contention, go optimistic — conflicts are rare, so retries are cheap and you avoid lock overhead. Under high contention on hot rows, go pessimistic — constant retry storms cost more than briefly queuing writers, provided you keep transactions short.",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3767,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 425,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3767,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 425,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3767,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3767
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 662,
+      "outputTokens": 18,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0007520000000000001,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 425,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3767,
+      "webSearchRequests": 0,
+      "costUSD": 0.159853,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.160605,
+  "durationMs": 14454,
+  "score": 75,
+  "scoreDetail": "technical accuracy: 9/10, scenario concreteness: 9/10, structure compliance: 4/10, junior-friendly clarity: 8/10 — Excellent mechanics and concrete dual scenarios, but blows the 130-180 word hard limit by ~40 words (22% over), which is a real structure violation despite otherwise correct paragraph shape."
+}

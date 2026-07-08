@@ -1,0 +1,5 @@
+.DS_Store
+
+# regenerable agent sandboxes and scratch workdirs (raw result JSONs are kept — they're the receipts)
+results*/sandboxes/
+results*/workdir/

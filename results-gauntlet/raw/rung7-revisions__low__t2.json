@@ -1,0 +1,168 @@
+{
+  "rung": "rung7-revisions",
+  "title": "The Revision Chain: 24 steps, later ones contradict earlier",
+  "axis": "stale-memory pressure: the spec keeps changing mid-session",
+  "effort": "low",
+  "trial": 2,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 45,
+  "gradeTotal": 45,
+  "gradeSteps": [
+    {
+      "step": "S1 notes field",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S2 note attach basics",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S3 notes append in order",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S4 zero notes render unchanged",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S5 priority at creation",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S6 listByPriority",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S7 no priority field → no prefix",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S8 notesCount sums",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S9 trailing !priority token",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S10 runCommand wires priority",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S11 full task → null (not silent)",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S12 note suffix is [n]",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S13 archive semantics",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    },
+    {
+      "step": "S14 low prefix exists",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S15 searchNotes",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S16 attachNote + addNote alias",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S17 priorityCounts",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S18 !token anywhere in title",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S19 completeTask on archived → null",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S20 cap is 7, overflow → null",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S21 list rendering respects archive",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S22 notesCount skips archived",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "S23 every priority prefixed",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S24 runCommand archive",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "baseline tests still pass",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 6931,
+  "durationMs": 109810,
+  "numTurns": 17,
+  "callError": null
+}

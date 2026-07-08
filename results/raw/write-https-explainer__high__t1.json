@@ -1,0 +1,66 @@
+{
+  "taskId": "write-https-explainer",
+  "category": "writing",
+  "title": "Explain HTTPS to a 12-year-old",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "Here's how HTTPS works:\n\n---\n\nImagine passing a note across a classroom to your friend — except every kid in between can read it, copy it, or swap it for a fake. That's the internet without HTTPS. Your message hops through dozens of computers you've never met before reaching a website.\n\nHTTPS fixes this with a clever trick called **public-key encryption**. The website hands out an open padlock to anyone who asks. You snap it shut around your message — and here's the magic — *only the website has the key*. Even the person who handed you the padlock can't reopen it. Eavesdroppers along the way see pure gibberish.\n\nBut wait — what if a scammer hands you *their* padlock and pretends to be your bank? That's why websites carry **certificates**: ID cards signed by trusted organizations your browser already knows. Fake ID? Your browser slams the door and shows a warning.\n\nSo HTTPS really does two jobs: it **scrambles** your data so no one can snoop, and it **verifies** you're talking to the real site, not an imposter.\n\nThat tiny padlock icon in your address bar? It means both checks passed — in milliseconds, before the page even loaded.",
+  "usage": {
+    "input_tokens": 4875,
+    "cache_creation_input_tokens": 3603,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 410,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3603,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4875,
+        "output_tokens": 410,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3603,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3603
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 561,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000641,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4875,
+      "outputTokens": 410,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3603,
+      "webSearchRequests": 0,
+      "costUSD": 0.158503,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.159144,
+  "durationMs": 12293,
+  "score": 78,
+  "scoreDetail": "technical accuracy: 7/10, clarity for a 12-year-old: 8/10, analogy quality: 8/10, engagement: 8/10 — Vivid and mostly accurate, though the padlock/key analogy blurs asymmetric vs symmetric encryption (real HTTPS switches to shared-key encryption after the handshake) and 'only the website has the key' oversimplifies that distinction."
+}

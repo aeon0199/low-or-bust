@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-coin-faces",
+  "category": "reasoning",
+  "title": "Conditional probability with loaded coins",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "This is a Bertrand's-box style problem, so the right way to count is by *faces*, not coins.\n\n**Setup.** Each coin is picked with probability 1/4, and each of its two sides lands up with probability 1/2 — so each of the 8 faces in the bag is equally likely to be facing up, probability 1/8 each.\n\n**Count the heads faces.** The two double-headed coins contribute 4 heads faces, the fair coin contributes 1, and the double-tailed coin contributes 0. So:\n\n- P(heads facing up) = 5/8.\n\n**When is the down side also heads?** Only when the coin is double-headed, which accounts for 4 of those 5 equally-likely heads-up faces:\n\n- P(heads down AND heads up) = 4/8.\n\n**Condition:**\n\nP(down is heads | up is heads) = (4/8) / (5/8) = 4/5 = 0.8.\n\nIntuitively: seeing heads is evidence you're holding a double-headed coin, since those coins show heads twice as often as the fair one — and there are two of them.\n\nANSWER: 0.8",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3703,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 653,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3703,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 653,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3703,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3703
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 635,
+      "outputTokens": 14,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000705,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 653,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3703,
+      "webSearchRequests": 0,
+      "costUSD": 0.169973,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.17067800000000002,
+  "durationMs": 16931,
+  "score": 100,
+  "scoreDetail": "answered \"0.8\", expected \"0.8\""
+}

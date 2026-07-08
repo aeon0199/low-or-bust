@@ -1,0 +1,66 @@
+{
+  "taskId": "write-launch-email",
+  "category": "writing",
+  "title": "Product announcement email",
+  "effort": "xhigh",
+  "trial": 1,
+  "model": "claude-opus-4-8[1m]",
+  "isError": false,
+  "response": "**Subject:** Your notes now work offline (finally!)\n\nHi there,\n\nWe know inspiration doesn't wait for a Wi-Fi signal — so we built Offline Mode.\n\nNow you can capture ideas anywhere: on a plane, in a basement, or deep in the woods. Just open Notely and start writing. There's nothing to save and no button to remember. The moment you're back online, everything syncs automatically, exactly where it belongs.\n\nOffline Mode works seamlessly across both mobile and desktop, so your thoughts stay in step no matter which device you reach for.\n\nBest of all? It's available today for everyone — including our free plan. No upgrade required, no strings attached.\n\nWe think this is one of those features you'll forget is even there, right up until the moment you really need it. That's kind of the point.\n\nGive it a try on your next trip off the grid.\n\n**[Try Offline Mode →]**\n\nHappy note-taking,\nThe Notely Team\n\n*(Body: 141 words)*",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 2405,
+    "cache_read_input_tokens": 17200,
+    "output_tokens": 373,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2405,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 373,
+        "cache_read_input_tokens": 17200,
+        "cache_creation_input_tokens": 2405,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2405
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 639,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000719,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-opus-4-8[1m]": {
+      "inputTokens": 4607,
+      "outputTokens": 373,
+      "cacheReadInputTokens": 17200,
+      "cacheCreationInputTokens": 2405,
+      "webSearchRequests": 0,
+      "costUSD": 0.06501,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.065729,
+  "durationMs": 9404,
+  "score": 88,
+  "scoreDetail": "completeness: 9/10, tone: 8/10, structure: 9/10, length compliance: 9/10 — All three key points are clearly and prominently covered with a strong subject line and single CTA; tone is warm and mostly restrained though a couple of lines ('That's kind of the point') edge toward cutesy."
+}

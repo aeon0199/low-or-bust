@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-lex-topo-order",
+  "category": "coding",
+  "title": "Lexicographically smallest task order",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "```javascript\nfunction buildOrder(n, edges) {\n  const adj = Array.from({ length: n }, () => []);\n  const indegree = new Array(n).fill(0);\n  const seen = new Set();\n\n  for (const [a, b] of edges) {\n    const key = a * n + b;\n    if (seen.has(key)) continue;\n    seen.add(key);\n    adj[a].push(b);\n    indegree[b]++;\n  }\n\n  // min-heap for lexicographically smallest ordering\n  const heap = [];\n  const push = (v) => {\n    heap.push(v);\n    let i = heap.length - 1;\n    while (i > 0) {\n      const p = (i - 1) >> 1;\n      if (heap[p] <= heap[i]) break;\n      [heap[p], heap[i]] = [heap[i], heap[p]];\n      i = p;\n    }\n  };\n  const pop = () => {\n    const top = heap[0];\n    const last = heap.pop();\n    if (heap.length > 0) {\n      heap[0] = last;\n      let i = 0;\n      for (;;) {\n        const l = 2 * i + 1, r = 2 * i + 2;\n        let s = i;\n        if (l < heap.length && heap[l] < heap[s]) s = l;\n        if (r < heap.length && heap[r] < heap[s]) s = r;\n        if (s === i) break;\n        [heap[s], heap[i]] = [heap[i], heap[s]];\n        i = s;\n      }\n    }\n    return top;\n  };\n\n  for (let v = 0; v < n; v++) {\n    if (indegree[v] === 0) push(v);\n  }\n\n  const order = [];\n  while (heap.length > 0) {\n    const v = pop();\n    order.push(v);\n    for (const w of adj[v]) {\n      if (--indegree[w] === 0) push(w);\n    }\n  }\n\n  return order.length === n ? order : null;\n}\n```",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3773,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 720,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3773,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 720,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3773,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3773
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 673,
+      "outputTokens": 18,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000763,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 720,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3773,
+      "webSearchRequests": 0,
+      "costUSD": 0.17472300000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.17548600000000003,
+  "durationMs": 12448,
+  "score": 100,
+  "scoreDetail": "8/8 tests passed"
+}

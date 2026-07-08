@@ -1,0 +1,6 @@
+{
+  "name": "storefront",
+  "version": "3.1.0",
+  "type": "module",
+  "description": "Order pricing, reporting, and per-category analytics."
+}

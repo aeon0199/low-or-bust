@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-puzzle-hunt",
+  "category": "reasoning",
+  "title": "Five-person finish order",
+  "effort": "medium",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "The order works out to: Tao (1st), Sam (2nd), Quinn (3rd), Priya (4th), Rosa (5th).\n\nReasoning:\n- Clue 1 means Quinn–Priya are consecutive, so Quinn can be at most 4th. Clue 3 puts Sam before Quinn, so Quinn isn't 1st, and clue 6 rules out 2nd. So Quinn is 3rd or 4th.\n- If Quinn were 4th, Priya would be 5th, forcing Tao to 1st (clue 4). Sam would be 2nd or 3rd, Rosa the other — but then Rosa and Sam can't have exactly two people between them (clue 5). Contradiction.\n- So Quinn is 3rd and Priya is 4th. Rosa can't be in the top two (clue 2), so Rosa is 5th. Exactly two people between Rosa (5th) and Sam forces Sam to 2nd, leaving Tao 1st — which satisfies clue 4.\n\nChecking every clue against Tao–Sam–Quinn–Priya–Rosa: Priya (4) is immediately after Quinn (3) ✓; Rosa is 5th, not top two ✓; Sam (2) is before Quinn (3) ✓; Tao is 1st ✓; Quinn and Priya sit between Sam and Rosa — exactly two ✓; Quinn isn't 2nd ✓.\n\nANSWER: Priya",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3764,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 897,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3764,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 897,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3764,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3764
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 668,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000748,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 897,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3764,
+      "webSearchRequests": 0,
+      "costUSD": 0.183393,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.184141,
+  "durationMs": 16409,
+  "score": 100,
+  "scoreDetail": "answered \"priya\", expected \"priya\""
+}

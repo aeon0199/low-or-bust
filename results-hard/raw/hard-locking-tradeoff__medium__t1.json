@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-locking-tradeoff",
+  "category": "writing",
+  "title": "Optimistic vs pessimistic locking, exactly 3 paragraphs",
+  "effort": "medium",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "The lost-update bug you hit happens because two transactions read the same row, both compute new values from what they read, and the second write silently overwrites the first. Pessimistic locking prevents this by acquiring a lock at read time (e.g. `SELECT ... FOR UPDATE`): anyone else who wants that row blocks until your transaction commits or rolls back, so conflicting work never runs concurrently. Optimistic locking lets everyone read freely but adds a version column; your update becomes `UPDATE ... SET version = version + 1 WHERE id = ? AND version = ?`, and if zero rows match, someone changed the row under you and you must retry or surface an error.\n\nEach strategy fails differently. Pessimistic: request A locks the invoice row, then stalls on a slow external call; fifty checkout requests queue behind that lock, connection pool exhausts, the whole service stalls. Optimistic: during a flash sale, twenty threads decrement the same inventory row; nineteen fail the version check, retry, and mostly fail again, burning CPU while throughput collapses.\n\nRule of thumb: measure contention. If concurrent writes to the same row are rare — typical CRUD apps — use optimistic locking and pay the occasional retry. If many writers routinely hit the same hot rows, lock pessimistically, and keep those transactions short.",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3766,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 440,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3766,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 440,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3766,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3766
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 662,
+      "outputTokens": 21,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000767,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 440,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3766,
+      "webSearchRequests": 0,
+      "costUSD": 0.160583,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.16135,
+  "durationMs": 14221,
+  "score": 73,
+  "scoreDetail": "technical accuracy: 9/10, scenario concreteness: 8/10, structure compliance: 4/10, junior-friendly clarity: 8/10 — Accurate, concrete, and clear, but at 216 words it blows past the 130-180 cap by ~20%, a clear hard-constraint violation."
+}

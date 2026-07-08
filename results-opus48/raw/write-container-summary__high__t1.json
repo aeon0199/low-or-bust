@@ -1,0 +1,66 @@
+{
+  "taskId": "write-container-summary",
+  "category": "writing",
+  "title": "Summarize a passage in 3 bullets",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-opus-4-8[1m]",
+  "isError": false,
+  "response": "- Before the 1950s, cargo was loaded onto ships individually as sacks, barrels, and crates in a slow, costly process called break-bulk shipping that could take a week and cost around $5.86 per ton for a medium-sized ship.\n- In 1956, American trucking entrepreneur Malcom McLean sent a converted tanker, the Ideal X, from Newark to Houston carrying 58 uniform metal boxes liftable straight from truck to ship, cutting loading costs to roughly 16 cents per ton.\n- The decisive breakthrough was standardization, as international standards agreed by 1968 settled common container dimensions and twistlock corner castings so any crane in any port could handle any container, driving shipping costs so low that transport largely stopped determining where goods were made and reshaping global trade.",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 2658,
+    "cache_read_input_tokens": 17200,
+    "output_tokens": 265,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2658,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 265,
+        "cache_read_input_tokens": 17200,
+        "cache_creation_input_tokens": 2658,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2658
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 797,
+      "outputTokens": 15,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0008719999999999999,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-opus-4-8[1m]": {
+      "inputTokens": 4607,
+      "outputTokens": 265,
+      "cacheReadInputTokens": 17200,
+      "cacheCreationInputTokens": 2658,
+      "webSearchRequests": 0,
+      "costUSD": 0.06484000000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.065712,
+  "durationMs": 7936,
+  "score": 83,
+  "scoreDetail": "fidelity: 9/10, coverage: 9/10, format compliance: 9/10, concision: 6/10 — Facts and coverage are accurate and complete, but the third bullet is a long run-on sentence stuffing multiple clauses together."
+}

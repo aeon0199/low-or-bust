@@ -1,0 +1,66 @@
+{
+  "taskId": "code-parse-duration",
+  "category": "coding",
+  "title": "Implement parseDuration",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "```javascript\nfunction parseDuration(str) {\n  if (typeof str !== \"string\") return null;\n  const match = /^(?:(\\d+)h)?(?:(\\d+)m)?(?:(\\d+)s)?$/.exec(str);\n  if (!match || (match[1] === undefined && match[2] === undefined && match[3] === undefined)) {\n    return null;\n  }\n  const hours = match[1] ? parseInt(match[1], 10) : 0;\n  const minutes = match[2] ? parseInt(match[2], 10) : 0;\n  const seconds = match[3] ? parseInt(match[3], 10) : 0;\n  return hours * 3600 + minutes * 60 + seconds;\n}\n```",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3865,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 250,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3865,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 250,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3865,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3865
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 748,
+      "outputTokens": 14,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0008179999999999999,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 250,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3865,
+      "webSearchRequests": 0,
+      "costUSD": 0.153063,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.15388100000000002,
+  "durationMs": 10090,
+  "score": 100,
+  "scoreDetail": "14/14 tests passed"
+}

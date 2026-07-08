@@ -1,0 +1,66 @@
+{
+  "taskId": "write-launch-email",
+  "category": "writing",
+  "title": "Product announcement email",
+  "effort": "low",
+  "trial": 1,
+  "model": "claude-opus-4-8[1m]",
+  "isError": false,
+  "response": "**Subject:** Your notes now work offline — no wifi, no worries\n\nHi there,\n\nWe know your best ideas don't wait for a good connection. That's why we're excited to introduce **Offline Mode** in Notely.\n\nNow you can write, edit, and organize your notes anywhere — on a plane, in a tunnel, or off the grid entirely. The moment you're back online, everything syncs automatically. No manual saving, no lost thoughts, no \"did that go through?\" second-guessing.\n\nOffline Mode works seamlessly across both mobile and desktop, so your notes stay with you no matter which device you reach for.\n\nThe best part? It's available today for *everyone* — including our free plan users. No upgrade required.\n\nJust open Notely and start writing. Next time you lose signal, you'll barely notice.\n\n**[Try Offline Mode now →]**\n\nHappy note-taking,\nThe Notely Team",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 2408,
+    "cache_read_input_tokens": 17200,
+    "output_tokens": 309,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2408,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 309,
+        "cache_read_input_tokens": 17200,
+        "cache_creation_input_tokens": 2408,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2408
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 639,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000719,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-opus-4-8[1m]": {
+      "inputTokens": 4607,
+      "outputTokens": 309,
+      "cacheReadInputTokens": 17200,
+      "cacheCreationInputTokens": 2408,
+      "webSearchRequests": 0,
+      "costUSD": 0.06344,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.064159,
+  "durationMs": 7536,
+  "score": 85,
+  "scoreDetail": "completeness: 9/10, tone: 7/10, structure: 9/10, length compliance: 9/10 — All key points present and prominent with clear CTA and correct length, though phrases like 'excited to introduce' and bolded asterisks edge toward typical marketing-speak."
+}

@@ -1,0 +1,66 @@
+{
+  "taskId": "write-https-explainer",
+  "category": "writing",
+  "title": "Explain HTTPS to a 12-year-old",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-opus-4-8[1m]",
+  "isError": false,
+  "response": "Imagine mailing a secret note across a school full of people who'd love to read it. HTTPS is the trick that lets you do it safely.\n\n**The lock**\nWhen you visit a site, your browser and the site do a rapid handshake. They agree on a secret key that only the two of them know — even though they're shouting the setup across a crowded internet. The clever part: they use math (public-key cryptography) where a padlock can be handed out openly, but only the site holds the key to open it. Eavesdroppers see the padlock, not what's inside.\n\n**The scrambler**\nOnce they share a secret, everything you send — passwords, messages, card numbers — gets scrambled into gibberish. Intercept it and you get noise. Only the right key unscrambles it.\n\n**The ID check**\nHTTPS also proves the site is *really* who it claims. A trusted authority signs the site a certificate, like a hard-to-fake passport. So you're not handing your secrets to an impostor pretending to be your bank.\n\nLock, scrambler, ID check — working together every time you see that little 🔒. That's why \"https\" beats plain \"http\": the *S* stands for **Secure**, and it's earned.",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 2306,
+    "cache_read_input_tokens": 17200,
+    "output_tokens": 417,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2306,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 417,
+        "cache_read_input_tokens": 17200,
+        "cache_creation_input_tokens": 2306,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2306
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 561,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000641,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-opus-4-8[1m]": {
+      "inputTokens": 4607,
+      "outputTokens": 417,
+      "cacheReadInputTokens": 17200,
+      "cacheCreationInputTokens": 2306,
+      "webSearchRequests": 0,
+      "costUSD": 0.06512,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.065761,
+  "durationMs": 10697,
+  "score": 68,
+  "scoreDetail": "technical accuracy: 7/10, clarity for a 12-year-old: 6/10, analogy quality: 7/10, engagement: 7/10 — Solid and mostly accurate but glosses over symmetric/asymmetric key distinction and packs in jargon like 'public-key cryptography' that undercuts the target-age clarity."
+}

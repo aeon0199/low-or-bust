@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-weighted-intervals",
+  "category": "coding",
+  "title": "Max-value non-overlapping intervals",
+  "effort": "low",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "```javascript\nfunction weightedIntervalMax(intervals) {\n  const items = intervals.slice().sort((a, b) => a[1] - b[1]);\n  const n = items.length;\n  const dp = new Array(n + 1).fill(0);\n  for (let i = 1; i <= n; i++) {\n    const [s, , v] = items[i - 1];\n    // find last j (1-indexed) with items[j-1].end <= s, via binary search\n    let lo = 0, hi = i - 1;\n    while (lo < hi) {\n      const mid = (lo + hi + 1) >> 1;\n      if (items[mid - 1][1] <= s) lo = mid;\n      else hi = mid - 1;\n    }\n    dp[i] = Math.max(dp[i - 1], dp[lo] + v);\n  }\n  return dp[n];\n}\n```",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 20965,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 295,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 20965,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 295,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 20965,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 20965
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 670,
+      "outputTokens": 14,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.00074,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 295,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 20965,
+      "webSearchRequests": 0,
+      "costUSD": 0.48012,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.48086,
+  "durationMs": 10977,
+  "score": 100,
+  "scoreDetail": "8/8 tests passed"
+}

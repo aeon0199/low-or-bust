@@ -1,0 +1,6 @@
+{
+  "name": "ledgerlite",
+  "version": "2.3.1",
+  "type": "module",
+  "description": "A small personal-finance ledger: transactions, daily summaries, filters, CSV export."
+}

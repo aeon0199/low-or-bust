@@ -1,0 +1,36 @@
+{
+  "rung": "rung2-crossfile",
+  "title": "Needle in 25 files (~1,100 lines)",
+  "axis": "convention violation hidden among 20 near-identical modules",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 9,
+  "gradeTotal": 9,
+  "gradeSteps": [
+    {
+      "step": "bug: payments accepts valid payloads",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "core contract unchanged",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "other resources unaffected",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 1132,
+  "durationMs": 41831,
+  "numTurns": 7,
+  "callError": null
+}

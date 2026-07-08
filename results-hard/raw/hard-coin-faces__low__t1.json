@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-coin-faces",
+  "category": "reasoning",
+  "title": "Conditional probability with loaded coins",
+  "effort": "low",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "Count by faces, not coins. The 4 coins have 8 sides total; 5 of them are heads: 4 from the two double-headed coins, 1 from the fair coin.\n\nGiven heads is showing, each of those 5 heads faces is equally likely to be the one facing up. The face down is also heads only if the coin is double-headed — 4 of the 5 cases.\n\nSo P(down = heads | up = heads) = 4/5.\n\nANSWER: 0.8",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3706,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 212,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3706,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 212,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3706,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3706
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 635,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000715,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 212,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3706,
+      "webSearchRequests": 0,
+      "costUSD": 0.147983,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.148698,
+  "durationMs": 9429,
+  "score": 100,
+  "scoreDetail": "answered \"0.8\", expected \"0.8\""
+}

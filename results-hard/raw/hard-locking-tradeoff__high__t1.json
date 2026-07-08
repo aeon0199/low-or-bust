@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-locking-tradeoff",
+  "category": "writing",
+  "title": "Optimistic vs pessimistic locking, exactly 3 paragraphs",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "Optimistic locking doesn't actually lock anything: each row carries a version number (or timestamp), you read the row along with its version, and when you write back you do so conditionally — `UPDATE ... SET version = version + 1 WHERE id = ? AND version = ?`. If zero rows were updated, someone else changed the record since you read it, and your application must retry or surface the conflict. Pessimistic locking takes a real lock at read time, typically `SELECT ... FOR UPDATE` inside a transaction, so any other transaction wanting that row blocks until you commit or roll back.\n\nOptimistic failure: two support agents open the same ticket during a flash-sale outage; agent A saves, bumping version 5 to 6, so agent B's save fails — B retries, but a third edit lands first, and after several failed retries B's fifteen-minute writeup is rejected. Pessimistic failure: a user opens an edit form that takes a `FOR UPDATE` lock, then leaves for lunch; every other transaction touching that row hangs, connections pile up, and the pool exhausts.\n\nRule of thumb: measure contention. If concurrent edits to the same row are rare — say, under a few percent of writes — use optimistic locking and pay the occasional retry. If many writers routinely hit the same hot rows, retries will thrash, so take short-lived pessimistic locks instead, and never hold them across user think-time.",
+  "usage": {
+    "input_tokens": 4875,
+    "cache_creation_input_tokens": 3767,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 460,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3767,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4875,
+        "output_tokens": 460,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3767,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3767
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 662,
+      "outputTokens": 18,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0007520000000000001,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4875,
+      "outputTokens": 460,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3767,
+      "webSearchRequests": 0,
+      "costUSD": 0.164283,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.16503500000000002,
+  "durationMs": 12537,
+  "score": 75,
+  "scoreDetail": "technical accuracy: 9/10, scenario concreteness: 9/10, structure compliance: 4/10, junior-friendly clarity: 8/10 — Excellent mechanics and two genuinely concrete failure scenarios, but the response is 235 words against a 130-180 word cap — roughly 30% over the hard limit, a serious constraint violation despite otherwise clean 3-paragraph structure."
+}

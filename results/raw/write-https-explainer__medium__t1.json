@@ -1,0 +1,66 @@
+{
+  "taskId": "write-https-explainer",
+  "category": "writing",
+  "title": "Explain HTTPS to a 12-year-old",
+  "effort": "medium",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "Imagine passing a note to your friend across a classroom full of nosy people. Everyone the note passes through can read it. That's the internet without HTTPS — your passwords, messages, and credit card numbers hopping between dozens of computers you've never met.\n\nHTTPS fixes this with two tricks.\n\n**Trick one: the unbreakable code.** Before your browser sends anything, it and the website agree on a secret key and scramble everything with it. Anyone intercepting your data sees pure gibberish. But here's the clever part — how do you agree on a secret key while everyone's listening? Math. There are mathematical operations that are easy to do one way but nearly impossible to reverse, like mixing two paint colors: easy to blend, hopeless to un-mix. Your browser and the site each mix in a private ingredient, and both end up with the same secret — while eavesdroppers only ever saw the mixed versions.\n\n**Trick two: the ID check.** Encryption is useless if you're talking to an impostor. So websites carry certificates — digital ID cards vouched for by organizations your browser already trusts.\n\nThat padlock in your address bar means both tricks worked: nobody can read your note, and you're sure who's receiving it.",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3605,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 412,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3605,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 412,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3605,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3605
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 561,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000641,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 412,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3605,
+      "webSearchRequests": 0,
+      "costUSD": 0.15596300000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.15660400000000002,
+  "durationMs": 12819,
+  "score": 73,
+  "scoreDetail": "technical accuracy: 6/10, clarity for a 12-year-old: 7/10, analogy quality: 8/10, engagement: 8/10 — Vivid and mostly correct, but the key-exchange mechanism ('private ingredient' mixing) is vague enough to mislead about how it actually works, and it never distinguishes symmetric vs asymmetric crypto or explains what a certificate authority verifies."
+}

@@ -1,0 +1,48 @@
+{
+  "rung": "rung4-underspec",
+  "title": "Underspecified feature (rate limiting)",
+  "axis": "design decisions left open, graded on behavior",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 10,
+  "gradeTotal": 10,
+  "gradeSteps": [
+    {
+      "step": "limiter exists and wires in",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "61st request in window rejected",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "users are isolated",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "window is rolling, not a fixed bucket",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "reset clears state",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 2289,
+  "durationMs": 64010,
+  "numTurns": 9,
+  "callError": null
+}

@@ -1,0 +1,85 @@
+{
+  "key": "A__mono-high__t2",
+  "package": "A",
+  "condition": "mono-high",
+  "arm": "mono",
+  "effort": "high",
+  "trial": 2,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 19,
+  "gradeTotal": 19,
+  "gradeSteps": [
+    {
+      "step": "A1 formatDuration",
+      "pass": 6,
+      "total": 6,
+      "detail": []
+    },
+    {
+      "step": "A2 completionRate empty fix",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "A3 removeTask",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    },
+    {
+      "step": "A4 parse validation",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "A5 format tests written",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "baseline tests still pass",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 2695,
+  "durationMs": 63762,
+  "anyCallError": false,
+  "calls": [
+    {
+      "step": "all",
+      "isError": false,
+      "tokens": 2695,
+      "durationMs": 59752,
+      "numTurns": 13,
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 980,
+          "outputTokens": 16,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.00106,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-fable-5": {
+          "inputTokens": 5876,
+          "outputTokens": 2695,
+          "cacheReadInputTokens": 197947,
+          "cacheCreationInputTokens": 14741,
+          "webSearchRequests": 0,
+          "costUSD": 0.686277,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      }
+    }
+  ]
+}

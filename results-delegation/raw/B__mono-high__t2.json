@@ -1,0 +1,85 @@
+{
+  "key": "B__mono-high__t2",
+  "package": "B",
+  "condition": "mono-high",
+  "arm": "mono",
+  "effort": "high",
+  "trial": 2,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 17,
+  "gradeTotal": 17,
+  "gradeSteps": [
+    {
+      "step": "B1 priority on addTask",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    },
+    {
+      "step": "B2 listByPriority",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "B3 formatTask priority tag",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    },
+    {
+      "step": "B4 countByPriority",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "B5 parse --priority flag",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "baseline tests still pass",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 4139,
+  "durationMs": 78559,
+  "anyCallError": false,
+  "calls": [
+    {
+      "step": "all",
+      "isError": false,
+      "tokens": 4139,
+      "durationMs": 74633,
+      "numTurns": 16,
+      "modelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 984,
+          "outputTokens": 15,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.001059,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000
+        },
+        "claude-fable-5": {
+          "inputTokens": 5877,
+          "outputTokens": 4139,
+          "cacheReadInputTokens": 202048,
+          "cacheCreationInputTokens": 17169,
+          "webSearchRequests": 0,
+          "costUSD": 0.8111479999999999,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000
+        }
+      }
+    }
+  ]
+}

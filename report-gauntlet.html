@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Low or Bust: The Gauntlet</title>
+<style>
+:root{--surface:#fcfcfb;--page:#f9f9f7;--ink:#0b0b0b;--ink-2:#52514e;--muted:#898781;--grid:#e1e0d9;--baseline:#c3c2b7;--border:rgba(11,11,11,.10);--full:#2a78d6;--part:#e34948;--good:#006300;--bad:#d03b3b}
+@media (prefers-color-scheme: dark){:root{--surface:#1a1a19;--page:#0d0d0d;--ink:#fff;--ink-2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--baseline:#383835;--border:rgba(255,255,255,.10);--full:#3987e5;--part:#e66767;--good:#0ca30c;--bad:#e66767}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--page);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:32px 24px;max-width:960px;margin:0 auto}
+h1{font-size:26px;margin-bottom:2px} h2{font-size:17px;margin:36px 0 4px}
+.sub,.muted{color:var(--muted);font-size:13px}
+.chart-note{color:var(--ink-2);font-size:13px;margin-bottom:10px}
+section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-top:10px}
+.cards{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+.card-cat{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.hero-sm{font-size:20px;font-weight:700;margin:2px 0}
+.ok{color:var(--good)} .bad{color:var(--bad)}
+.card-sub{font-size:13px;color:var(--ink-2)} .card-axis{font-size:12px;color:var(--muted);margin-top:2px}
+svg{width:100%;height:auto;display:block}
+.baseline{stroke:var(--baseline);stroke-width:1}
+.tick{fill:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+.axis-label{fill:var(--ink-2);font-size:12px}
+.sfull{fill:var(--full)} .spart{fill:var(--part)}
+.mark:hover{opacity:.82}
+table{border-collapse:collapse;width:100%;font-size:13px;margin-top:8px}
+th{text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--baseline);padding:6px 8px}
+td{border-bottom:1px solid var(--grid);padding:5px 8px;vertical-align:top}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td.detail{color:var(--ink-2);font-size:12px;max-width:340px}
+.table-wrap{overflow-x:auto}
+#tooltip{position:fixed;pointer-events:none;background:var(--ink);color:var(--page);font-size:12px;padding:6px 9px;border-radius:6px;opacity:0;transition:opacity .1s;z-index:10}
+</style></head><body>
+<h1>Low or Bust: The Gauntlet</h1>
+<div class="sub">Low effort climbs a difficulty ladder until it cracks · model: fable · 10 runs · red bars/labels mark cracks</div>
+<div class="cards"><div class="card"><div class="card-cat">Discovery debugging (~450 lines)</div><div class="hero-sm"><span class="ok">PASSED @ low</span></div><div class="card-sub">1.4k tokens · 49s · 10/10 hidden checks</div><div class="card-axis">axis: find the bug from a symptom, no file hints</div></div><div class="card"><div class="card-cat">Needle in 25 files (~1,100 lines)</div><div class="hero-sm"><span class="ok">PASSED @ low</span></div><div class="card-sub">1.1k tokens · 42s · 9/9 hidden checks</div><div class="card-axis">axis: convention violation hidden among 20 near-identical modules</div></div><div class="card"><div class="card-cat">12-step dependent chain, one session</div><div class="hero-sm"><span class="ok">PASSED @ low</span></div><div class="card-sub">5.7k tokens · 91s · 31/31 hidden checks</div><div class="card-axis">axis: context bloat: does quality degrade by step 12?</div></div><div class="card"><div class="card-cat">Underspecified feature (rate limiting)</div><div class="hero-sm"><span class="ok">PASSED @ low</span></div><div class="card-sub">2.3k tokens · 64s · 10/10 hidden checks</div><div class="card-axis">axis: design decisions left open, graded on behavior</div></div><div class="card"><div class="card-cat">Adversarial code reading</div><div class="hero-sm"><span class="ok">PASSED @ low</span></div><div class="card-sub">603 tokens · 18s · 7/7 hidden checks</div><div class="card-axis">axis: predict-the-output traps, instinct is wrong</div></div><div class="card"><div class="card-cat">The Labyrinth: 3 bugs + a decoy (38 files)</div><div class="hero-sm"><span class="ok">PASSED @ low</span></div><div class="card-sub">4.4k tokens · 99s · 18/18 hidden checks</div><div class="card-axis">axis: interacting bugs, overlapping symptoms, one report is not a bug</div></div><div class="card"><div class="card-cat">The Revision Chain: 24 steps, later ones contradict earlier</div><div class="hero-sm"><span class="ok">PASSED @ low</span></div><div class="card-sub">6.9k tokens · 110s · 45/45 hidden checks</div><div class="card-axis">axis: stale-memory pressure: the spec keeps changing mid-session</div></div></div>
+<h2>The long-chain degradation curve</h2>
+<div class="chart-note">Per-step hidden-check pass rate at low effort, first trial. A cliff on the right = context bloat hurting late steps.</div>
+<section><svg viewBox="0 0 720 220" role="img"><line x1="44" x2="712" y1="180" y2="180" class="baseline"/><path d="M51.83333333333333,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S1 tags field — 2/2"/><path d="M107.49999999999999,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S2 addTag — 3/3"/><path d="M163.16666666666666,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S3 normalization — 2/2"/><path d="M218.83333333333334,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S4 no duplicates — 2/2"/><path d="M274.49999999999994,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S5 max 5 tags — 2/2"/><path d="M330.16666666666663,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S6 removeTag — 3/3"/><path d="M385.8333333333333,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S7 listByTag — 2/2"/><path d="M441.49999999999994,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S8 renameTag — 3/3"/><path d="M497.16666666666663,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S9 tagStats — 2/2"/><path d="M552.8333333333334,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S10 formatTask tags — 3/3"/><path d="M608.5,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S11 parse #tags — 3/3"/><path d="M664.1666666666666,18 q0,-4 4,-4 h32 q4,0 4,4 v162 h-40 z" class="sfull mark" data-tip="S12 runCommand wires tags — 3/3"/><text x="38" y="18" class="tick" text-anchor="end">100%</text><text x="38" y="184" class="tick" text-anchor="end">0</text><text x="71.83333333333333" y="198" class="tick" text-anchor="middle">1</text><text x="127.49999999999999" y="198" class="tick" text-anchor="middle">2</text><text x="183.16666666666666" y="198" class="tick" text-anchor="middle">3</text><text x="238.83333333333334" y="198" class="tick" text-anchor="middle">4</text><text x="294.49999999999994" y="198" class="tick" text-anchor="middle">5</text><text x="350.16666666666663" y="198" class="tick" text-anchor="middle">6</text><text x="405.8333333333333" y="198" class="tick" text-anchor="middle">7</text><text x="461.49999999999994" y="198" class="tick" text-anchor="middle">8</text><text x="517.1666666666666" y="198" class="tick" text-anchor="middle">9</text><text x="572.8333333333334" y="198" class="tick" text-anchor="middle">10</text><text x="628.5" y="198" class="tick" text-anchor="middle">11</text><text x="684.1666666666666" y="198" class="tick" text-anchor="middle">12</text><text x="378" y="214" class="axis-label" text-anchor="middle">step number (later steps = fatter context)</text></svg></section>
+<h2>Every run</h2>
+<section class="table-wrap"><table>
+<thead><tr><th>rung</th><th>effort</th><th>trial</th><th>score</th><th>tokens</th><th>time</th><th>failing checks</th></tr></thead>
+<tbody><tr><td>rung1-discovery</td><td>low</td><td class="num">1</td><td class="num">100</td><td class="num">1.4k</td><td class="num">49s</td><td class="detail">all checks passed</td></tr><tr><td>rung2-crossfile</td><td>low</td><td class="num">1</td><td class="num">100</td><td class="num">1.1k</td><td class="num">42s</td><td class="detail">all checks passed</td></tr><tr><td>rung3-longchain</td><td>low</td><td class="num">1</td><td class="num">100</td><td class="num">5.7k</td><td class="num">91s</td><td class="detail">all checks passed</td></tr><tr><td>rung4-underspec</td><td>low</td><td class="num">1</td><td class="num">100</td><td class="num">2.3k</td><td class="num">64s</td><td class="detail">all checks passed</td></tr><tr><td>rung5-adversarial</td><td>low</td><td class="num">1</td><td class="num">100</td><td class="num">603</td><td class="num">18s</td><td class="detail">all checks passed</td></tr><tr><td>rung6-labyrinth</td><td>low</td><td class="num">1</td><td class="num">100</td><td class="num">4.4k</td><td class="num">99s</td><td class="detail">all checks passed</td></tr><tr><td>rung7-revisions</td><td>high</td><td class="num">1</td><td class="num">100</td><td class="num">10.0k</td><td class="num">157s</td><td class="detail">all checks passed</td></tr><tr><td>rung7-revisions</td><td>low</td><td class="num">1</td><td class="num">96</td><td class="num">5.3k</td><td class="num">72s</td><td class="detail">S12 note suffix is [n] 1/2 (after done marker: wrong value); S23 every priority prefixed 2/3 (full combo: wrong value)</td></tr><tr><td>rung7-revisions</td><td>low</td><td class="num">2</td><td class="num">100</td><td class="num">6.9k</td><td class="num">110s</td><td class="detail">all checks passed</td></tr><tr><td>rung7-revisions</td><td>low</td><td class="num">3</td><td class="num">100</td><td class="num">8.1k</td><td class="num">142s</td><td class="detail">all checks passed</td></tr></tbody>
+</table></section>
+<div id="tooltip"></div>
+<script>
+const tip = document.getElementById("tooltip");
+document.addEventListener("mousemove", (e) => {
+  const m = e.target.closest(".mark");
+  if (m && m.dataset.tip) { tip.textContent = m.dataset.tip; tip.style.opacity = 1; tip.style.left = Math.min(e.clientX + 14, innerWidth - 200) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+  else tip.style.opacity = 0;
+});
+</script>
+</body></html>

@@ -1,0 +1,96 @@
+{
+  "rung": "rung3-longchain",
+  "title": "12-step dependent chain, one session",
+  "axis": "context bloat: does quality degrade by step 12?",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 31,
+  "gradeTotal": 31,
+  "gradeSteps": [
+    {
+      "step": "S1 tags field",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S2 addTag",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S3 normalization",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S4 no duplicates",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S5 max 5 tags",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S6 removeTag",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S7 listByTag",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S8 renameTag",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S9 tagStats",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S10 formatTask tags",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S11 parse #tags",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S12 runCommand wires tags",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "baseline tests still pass",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 5694,
+  "durationMs": 90799,
+  "numTurns": 17,
+  "callError": null
+}

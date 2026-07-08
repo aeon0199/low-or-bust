@@ -1,0 +1,9 @@
+{
+  "name": "taskboard",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A tiny in-memory task tracker library.",
+  "scripts": {
+    "test": "node --test test/"
+  }
+}

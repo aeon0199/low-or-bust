@@ -1,0 +1,66 @@
+{
+  "taskId": "code-fix-merge-intervals",
+  "category": "coding",
+  "title": "Fix buggy mergeIntervals",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-opus-4-8[1m]",
+  "isError": false,
+  "response": "```javascript\nfunction mergeIntervals(intervals) {\n  const sorted = intervals.map(([start, end]) => [start, end]).sort((a, b) => a[0] - b[0]);\n  const merged = [];\n  for (const [start, end] of sorted) {\n    if (merged.length && start <= merged[merged.length - 1][1]) {\n      if (end > merged[merged.length - 1][1]) {\n        merged[merged.length - 1][1] = end;\n      }\n    } else {\n      merged.push([start, end]);\n    }\n  }\n  return merged;\n}\n```",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 2527,
+    "cache_read_input_tokens": 17200,
+    "output_tokens": 191,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2527,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 191,
+        "cache_read_input_tokens": 17200,
+        "cache_creation_input_tokens": 2527,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2527
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 729,
+      "outputTokens": 14,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000799,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-opus-4-8[1m]": {
+      "inputTokens": 4607,
+      "outputTokens": 191,
+      "cacheReadInputTokens": 17200,
+      "cacheCreationInputTokens": 2527,
+      "webSearchRequests": 0,
+      "costUSD": 0.06168,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.062479,
+  "durationMs": 4463,
+  "score": 100,
+  "scoreDetail": "7/7 tests passed"
+}

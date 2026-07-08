@@ -1,0 +1,66 @@
+{
+  "taskId": "write-launch-email",
+  "category": "writing",
+  "title": "Product announcement email",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-opus-4-8[1m]",
+  "isError": false,
+  "response": "**Subject:** Offline Mode is here — write notes anywhere\n\nHi there,\n\nEver lost a great thought because you were stuck without a signal? Not anymore.\n\nWe're excited to introduce **Offline Mode** in Notely. Now you can jot down notes anytime, anywhere — subway, plane, cabin in the woods — with no connection required. When you're back online, everything syncs automatically. No manual saving, no lost work, no fuss.\n\nIt works seamlessly across both mobile and desktop, so your notes are always with you and always up to date, wherever you left off.\n\nBest of all? Offline Mode is available today for *everyone* — including our free plan users. No upgrade needed to keep your ideas flowing.\n\nReady to give it a try? Just open Notely, go offline, and start writing. Your notes will be waiting to sync when you return.\n\n**[Try Offline Mode now →]**\n\nHappy note-taking,\nThe Notely Team",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 2404,
+    "cache_read_input_tokens": 17200,
+    "output_tokens": 324,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2404,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 324,
+        "cache_read_input_tokens": 17200,
+        "cache_creation_input_tokens": 2404,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2404
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 639,
+      "outputTokens": 17,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000724,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-opus-4-8[1m]": {
+      "inputTokens": 4607,
+      "outputTokens": 324,
+      "cacheReadInputTokens": 17200,
+      "cacheCreationInputTokens": 2404,
+      "webSearchRequests": 0,
+      "costUSD": 0.063775,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.064499,
+  "durationMs": 7558,
+  "score": 83,
+  "scoreDetail": "completeness: 8/10, tone: 8/10, structure: 8/10, length compliance: 9/10 — All three points are present and clear, tone is warm without being cringey, structure is scannable with one CTA, and length is on target at 150 words."
+}

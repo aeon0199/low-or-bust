@@ -1,0 +1,66 @@
+{
+  "taskId": "reason-snail-pole",
+  "category": "reasoning",
+  "title": "Snail on a pole",
+  "effort": "medium",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "Each day the snail nets 3 meters (up 4, back 1), but on the final day it reaches the top before slipping back.\n\nAt the start of day n, the snail is at 3(n−1) meters. During that day it climbs to 3(n−1) + 4. It reaches the top when 3(n−1) + 4 ≥ 17, i.e. n−1 ≥ 13/3 ≈ 4.33, so n = 6.\n\nCheck: after day 5's climb it's at 3·4 + 4 = 16 m (short of 17), slips to 15 m overnight. On day 6 it climbs from 15 to 19 ≥ 17, reaching the top.\n\nANSWER: 6",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 3652,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 356,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3652,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 356,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3652,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3652
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 606,
+      "outputTokens": 15,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000681,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4607,
+      "outputTokens": 356,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3652,
+      "webSearchRequests": 0,
+      "costUSD": 0.154103,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.15478399999999998,
+  "durationMs": 8811,
+  "score": 100,
+  "scoreDetail": "answered \"6\", expected \"6\""
+}

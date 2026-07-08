@@ -1,0 +1,66 @@
+{
+  "taskId": "reason-snail-pole",
+  "category": "reasoning",
+  "title": "Snail on a pole",
+  "effort": "high",
+  "trial": 1,
+  "model": "claude-opus-4-8[1m]",
+  "isError": false,
+  "response": "## Reasoning\n\nThe snail starts at 0. Each day it climbs 4 m; if it hasn't reached the top, it slips 1 m that night (net +3 per full day). The key is that on the day it reaches the top, it's done — no slip.\n\nTracking the height at the end of each day's *climb*:\n\n| Day | Start (m) | After climb (+4) | Reached 17? | After slip (−1) |\n|-----|-----------|------------------|-------------|-----------------|\n| 1 | 0 | 4 | no | 3 |\n| 2 | 3 | 7 | no | 6 |\n| 3 | 6 | 10 | no | 9 |\n| 4 | 9 | 13 | no | 12 |\n| 5 | 12 | 16 | no | 15 |\n| 6 | 15 | 19 | **yes** | — |\n\nOn day 6 the snail climbs from 15 m to 19 m, passing the 17 m top, so it reaches the top during day 6.\n\nANSWER: 6",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 2353,
+    "cache_read_input_tokens": 17200,
+    "output_tokens": 660,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2353,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 660,
+        "cache_read_input_tokens": 17200,
+        "cache_creation_input_tokens": 2353,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2353
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 606,
+      "outputTokens": 15,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000681,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-opus-4-8[1m]": {
+      "inputTokens": 4607,
+      "outputTokens": 660,
+      "cacheReadInputTokens": 17200,
+      "cacheCreationInputTokens": 2353,
+      "webSearchRequests": 0,
+      "costUSD": 0.071665,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.07234600000000001,
+  "durationMs": 11133,
+  "score": 100,
+  "scoreDetail": "answered \"6\", expected \"6\""
+}

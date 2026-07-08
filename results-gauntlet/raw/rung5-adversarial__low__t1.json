@@ -1,0 +1,60 @@
+{
+  "rung": "rung5-adversarial",
+  "title": "Adversarial code reading",
+  "axis": "predict-the-output traps, instinct is wrong",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 7,
+  "gradeTotal": 7,
+  "gradeSteps": [
+    {
+      "step": "snippet 1",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "snippet 2",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "snippet 3",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "snippet 4",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "snippet 5",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "snippet 6",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    },
+    {
+      "step": "snippet 7",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 603,
+  "durationMs": 18085,
+  "numTurns": 1,
+  "callError": null
+}

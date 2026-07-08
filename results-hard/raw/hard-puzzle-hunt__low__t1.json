@@ -1,0 +1,66 @@
+{
+  "taskId": "hard-puzzle-hunt",
+  "category": "reasoning",
+  "title": "Five-person finish order",
+  "effort": "low",
+  "trial": 1,
+  "model": "claude-fable-5",
+  "isError": false,
+  "response": "Working through it: Quinn can't be 1st (Sam is before him) or 2nd (clue 6), and can't be 5th (Priya is right after him). If Quinn were 4th, Priya is 5th, Tao is 1st, and Rosa (not top two) would be 3rd — but then Sam would need to be exactly three places from Rosa (clue 5), which is impossible. So Quinn is 3rd, Priya is 4th.\n\nClue 5 needs Rosa and Sam three positions apart; with Sam before Quinn, Sam is 2nd and Rosa is 5th... but clue 4 puts Tao 1st or 5th — Tao takes 1st. Final order: Tao, Sam, Quinn, Priya, Rosa.\n\nChecking every clue: Priya (4) immediately after Quinn (3) ✓; Rosa 5th, not top two ✓; Sam (2) before Quinn (3) ✓; Tao 1st ✓; two people (Quinn, Priya) between Rosa and Sam ✓; Quinn not 2nd ✓.\n\nANSWER: Priya",
+  "usage": {
+    "input_tokens": 4875,
+    "cache_creation_input_tokens": 3768,
+    "cache_read_input_tokens": 17193,
+    "output_tokens": 597,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 3768,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4875,
+        "output_tokens": 597,
+        "cache_read_input_tokens": 17193,
+        "cache_creation_input_tokens": 3768,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3768
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 668,
+      "outputTokens": 15,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000743,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-fable-5": {
+      "inputTokens": 4875,
+      "outputTokens": 597,
+      "cacheReadInputTokens": 17193,
+      "cacheCreationInputTokens": 3768,
+      "webSearchRequests": 0,
+      "costUSD": 0.171153,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.171896,
+  "durationMs": 12451,
+  "score": 100,
+  "scoreDetail": "answered \"priya\", expected \"priya\""
+}

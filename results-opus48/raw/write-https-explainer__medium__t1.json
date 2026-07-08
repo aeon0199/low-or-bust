@@ -1,0 +1,66 @@
+{
+  "taskId": "write-https-explainer",
+  "category": "writing",
+  "title": "Explain HTTPS to a 12-year-old",
+  "effort": "medium",
+  "trial": 1,
+  "model": "claude-opus-4-8[1m]",
+  "isError": false,
+  "response": "Imagine you're passing a note across a crowded classroom. Anyone who intercepts it can read it — unless you and your friend share a secret code. That's HTTPS.\n\nWhen you visit a secure site, your browser and the server do a lightning-fast handshake. The site proves who it is with a **certificate** — like an ID card signed by a trusted authority, so imposters can't fake it. Then the two sides agree on a secret key that *only they* know. Here's the clever part: they build that shared secret out in the open, using math that's easy to do one way but nearly impossible to reverse — like mixing paint colors is easy, but un-mixing them isn't.\n\nAfter that, everything you send — passwords, messages, card numbers — gets scrambled with that key. To anyone snooping on the Wi-Fi, it's meaningless gibberish. HTTPS also adds a tamper-check, so if someone alters the data mid-flight, both sides notice instantly.\n\nSo HTTPS does three jobs at once: it **hides** your data, **verifies** you're talking to the real site, and **catches meddling**. That little padlock in your address bar? It means all of that is quietly happening — thousands of times a day, faster than you can blink.",
+  "usage": {
+    "input_tokens": 4607,
+    "cache_creation_input_tokens": 2306,
+    "cache_read_input_tokens": 17200,
+    "output_tokens": 417,
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2306,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 4607,
+        "output_tokens": 417,
+        "cache_read_input_tokens": 17200,
+        "cache_creation_input_tokens": 2306,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2306
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 561,
+      "outputTokens": 17,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.000646,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000
+    },
+    "claude-opus-4-8[1m]": {
+      "inputTokens": 4607,
+      "outputTokens": 417,
+      "cacheReadInputTokens": 17200,
+      "cacheCreationInputTokens": 2306,
+      "webSearchRequests": 0,
+      "costUSD": 0.06512,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000
+    }
+  },
+  "costUsd": 0.06576599999999999,
+  "durationMs": 10826,
+  "score": 75,
+  "scoreDetail": "technical accuracy: 7/10, clarity for a 12-year-old: 7/10, analogy quality: 8/10, engagement: 8/10 — Strong and mostly accurate, but 'certificate signed by authority' and key-exchange explanation are compressed enough to leave a fuzzy/slightly imprecise picture of PKI for a careful reader."
+}

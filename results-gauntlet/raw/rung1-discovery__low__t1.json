@@ -1,0 +1,36 @@
+{
+  "rung": "rung1-discovery",
+  "title": "Discovery debugging (~450 lines)",
+  "axis": "find the bug from a symptom, no file hints",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 10,
+  "gradeTotal": 10,
+  "gradeSteps": [
+    {
+      "step": "bug: dateKey buckets in UTC",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "bug: dailyTotals groups by UTC day",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "regressions: everything else untouched",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 1433,
+  "durationMs": 48746,
+  "numTurns": 6,
+  "callError": null
+}

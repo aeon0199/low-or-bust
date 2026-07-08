@@ -1,0 +1,60 @@
+{
+  "rung": "rung6-labyrinth",
+  "title": "The Labyrinth: 3 bugs + a decoy (38 files)",
+  "axis": "interacting bugs, overlapping symptoms, one report is not a bug",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 18,
+  "gradeTotal": 18,
+  "gradeSteps": [
+    {
+      "step": "B1: conversion rounds to nearest cent",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "B2: range includes the whole to-day",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "B3: coupon subtracts pre-tax",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "pipeline: report exact only when ALL bugs fixed",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "decoy: id gaps are intended and preserved",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "herring: loose id lookup still load-bearing",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "regressions across the pipeline",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "tokens": 4414,
+  "durationMs": 98888,
+  "numTurns": 14,
+  "callError": null
+}
