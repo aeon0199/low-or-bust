@@ -114,7 +114,7 @@ async function cmdRun() {
   mkdirSync(join(RESULTS, "sandboxes"), { recursive: true });
   for (const rung of suite) {
     const existing = loadResults().filter((r) => r.rung === rung.id);
-    if (existing.some(passed) && existing.some((r) => r.effort === "low")) {
+    if (!opts["force-trials"] && existing.some(passed) && existing.some((r) => r.effort === "low")) {
       console.log(`▲ ${rung.id}: already passed at low — climbing on.`);
       continue;
     }

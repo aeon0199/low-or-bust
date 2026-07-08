@@ -3,7 +3,7 @@
   "title": "The Telephone Game: spec via messy chat transcript",
   "axis": "ecological validity: requirements arrive the way humans actually talk",
   "effort": "low",
-  "trial": 1,
+  "trial": 2,
   "model": "fable",
   "score": 100,
   "gradePass": 21,
@@ -59,9 +59,9 @@
     }
   ],
   "gradeError": null,
-  "tokens": 6184,
-  "durationMs": 103246,
-  "numTurns": 17,
+  "tokens": 5366,
+  "durationMs": 95640,
+  "numTurns": 16,
   "callError": null,
-  "note": "ran with LOW-GUARD v2 installed as global ~/.claude/CLAUDE.md (confound noted post-hoc)"
+  "note": "bare run: global CLAUDE.md temporarily removed — no guard anywhere"
 }

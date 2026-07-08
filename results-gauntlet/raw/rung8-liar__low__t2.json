@@ -3,7 +3,7 @@
   "title": "The Liar: docs, comments, and a test are wrong",
   "axis": "adversarial information: trust runtime behavior over prose",
   "effort": "low",
-  "trial": 1,
+  "trial": 2,
   "model": "fable",
   "score": 100,
   "gradePass": 10,
@@ -41,9 +41,9 @@
     }
   ],
   "gradeError": null,
-  "tokens": 1511,
-  "durationMs": 62338,
+  "tokens": 1641,
+  "durationMs": 49801,
   "numTurns": 10,
   "callError": null,
-  "note": "ran with LOW-GUARD v2 installed as global ~/.claude/CLAUDE.md (confound noted post-hoc)"
+  "note": "bare run: global CLAUDE.md temporarily removed — no guard anywhere"
 }
