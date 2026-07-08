@@ -1,0 +1,84 @@
+{
+  "condition": "monolith",
+  "effort": "low",
+  "trial": 1,
+  "model": "fable",
+  "score": 100,
+  "gradePass": 25,
+  "gradeTotal": 25,
+  "gradeSteps": [
+    {
+      "step": "S1 reminders field + addReminder",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    },
+    {
+      "step": "S2 cap revised to 5 (WO3 raises WO1's 3 by 2)",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S3 nextReminder earliest",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S4 formatTask earliest-date suffix (WO3 revision)",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S5 reminderLoad (not-done only)",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S6 parse remind-anywhere (WO3 revision)",
+      "pass": 4,
+      "total": 4,
+      "detail": []
+    },
+    {
+      "step": "S7 runCommand add wiring",
+      "pass": 2,
+      "total": 2,
+      "detail": []
+    },
+    {
+      "step": "S8 clearReminders + completeTask clears",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "S9 remind command (ok / full / unknown)",
+      "pass": 3,
+      "total": 3,
+      "detail": []
+    },
+    {
+      "step": "baseline tests still pass",
+      "pass": 1,
+      "total": 1,
+      "detail": []
+    }
+  ],
+  "gradeError": null,
+  "sittings": [
+    {
+      "sitting": 1,
+      "tokens": 8814,
+      "durationMs": 140368,
+      "numTurns": 19,
+      "notesBytes": 0,
+      "callError": null
+    }
+  ],
+  "totalTokens": 8814,
+  "note": "LOW-GUARD v2 present as global ~/.claude/CLAUDE.md for ALL cells — constant across conditions, so between-condition comparisons are unconfounded"
+}

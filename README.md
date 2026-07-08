@@ -113,6 +113,25 @@ the spec arrives as a messy chat transcript with typos, self-corrections, and
 a reference to a message never sent. QA: reference solutions score 100% on
 every rung; pristine fixtures fail every rung.
 
+## Low or Bust 4: Amnesia
+
+Multi-session work where the context window dies between sittings and only
+on-disk artifacts survive. Three work orders go to three FRESH sessions over
+one persistent sandbox; work order #3 revises decisions from work order #1
+without restating them ("raise the cap you were given in work order #1 by 2")
+— the session applying the revision never saw the original. Conditions:
+**notes** (sittings maintain a NOTES.md handoff), **nonotes** (handoff files
+forbidden and deleted — only code survives), **monolith** (one session gets
+all three work orders; context-survives control).
+
+```bash
+node amnesia.mjs run --trials 2      # 3 conditions × 2 trials = 14 agentic sessions
+node amnesia.mjs status
+```
+
+Graded by hidden tests (25 checks pinning the final revised state of every
+rule). QA: reference 100%, pristine fails.
+
 ## Notes
 
 - **Runs are resumable** — Ctrl-C any time; already-completed runs are skipped.
