@@ -87,7 +87,7 @@ function claudeCall(prompt, cwd) {
     "--max-turns", "40", "--dangerously-skip-permissions", "--allowedTools", "Read,Edit,Write,Glob,Grep"];
   // --container: hermetic run via docker (OrbStack) — see Dockerfile
   const [bin, argv] = opts.container
-    ? ["docker", ["run", "--rm", "-v", `${cwd}:/work`, "-v", "lob-claude-auth:/root/.claude", "lob-runner", ...args]]
+    ? ["docker", ["run", "--rm", "-e", "CLAUDE_CONFIG_DIR=/root/.claude", "-v", `${cwd}:/work`, "-v", "lob-claude-auth:/root/.claude", "lob-runner", ...args]]
     : ["claude", args];
   return new Promise((resolve) => {
     execFile(bin, argv, { cwd, env: { ...process.env, PATH: PATH_ENV }, maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60 * 1000 }, (err, stdout, stderr) => {

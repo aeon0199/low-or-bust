@@ -55,7 +55,7 @@ function claudeCall(prompt, effort, { cwd, agentic }) {
   // --container: hermetic run via docker (OrbStack) — the session sees ONLY the
   // mounted sandbox; no host filesystem, no global CLAUDE.md, no auto-memory.
   const [bin, argv] = opts.container
-    ? ["docker", ["run", "--rm", "-v", `${cwd}:/work`, "-v", "lob-claude-auth:/root/.claude", "lob-runner", ...args]]
+    ? ["docker", ["run", "--rm", "-e", "CLAUDE_CONFIG_DIR=/root/.claude", "-v", `${cwd}:/work`, "-v", "lob-claude-auth:/root/.claude", "lob-runner", ...args]]
     : ["claude", args];
   return new Promise((resolve) => {
     execFile(bin, argv, { cwd, env: { ...process.env, PATH: PATH_ENV }, maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60 * 1000 }, (err, stdout, stderr) => {

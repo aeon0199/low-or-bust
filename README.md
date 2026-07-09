@@ -139,3 +139,22 @@ rule). QA: reference 100%, pristine fails.
 - `report-demo.html` was generated from synthetic data so you can see what the output looks like before spending anything.
 - Raw per-run records live in `results/raw/` as JSON — response text, token usage, duration, score, and grading detail.
 - To re-grade from scratch, delete `results/raw` and re-run; to add tasks, edit `tasks.mjs`.
+
+## Hermetic container mode
+
+For gold-standard purity, gauntlet and amnesia runs can execute inside a
+minimal OrbStack/Docker container (`Dockerfile`: node + the Claude CLI and
+nothing else). The session sees ONLY its mounted sandbox — no host filesystem,
+no global CLAUDE.md, no auto-memory, no benchmark breadcrumbs.
+
+```bash
+docker build -t lob-runner .
+docker volume create lob-claude-auth
+# one-time: seed auth from the host's macOS keychain into the volume
+security find-generic-password -s "Claude Code-credentials" -w | \
+  docker run --rm -i -v lob-claude-auth:/root/.claude node:22-slim \
+  sh -c 'cat > /root/.claude/.credentials.json && chmod 600 /root/.claude/.credentials.json'
+
+node gauntlet.mjs run --container      # any run, now hermetic
+node amnesia.mjs run --container
+```
