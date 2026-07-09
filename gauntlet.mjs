@@ -52,8 +52,13 @@ function claudeCall(prompt, effort, { cwd, agentic }) {
   const args = ["-p", prompt, "--model", model, "--effort", effort, "--output-format", "json"];
   if (agentic) args.push("--max-turns", "40", "--dangerously-skip-permissions", "--allowedTools", "Read,Edit,Write,Glob,Grep");
   else args.push("--max-turns", "1");
+  // --container: hermetic run via docker (OrbStack) — the session sees ONLY the
+  // mounted sandbox; no host filesystem, no global CLAUDE.md, no auto-memory.
+  const [bin, argv] = opts.container
+    ? ["docker", ["run", "--rm", "-v", `${cwd}:/work`, "-v", "lob-claude-auth:/root/.claude", "lob-runner", ...args]]
+    : ["claude", args];
   return new Promise((resolve) => {
-    execFile("claude", args, { cwd, env: { ...process.env, PATH: PATH_ENV }, maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60 * 1000 }, (err, stdout, stderr) => {
+    execFile(bin, argv, { cwd, env: { ...process.env, PATH: PATH_ENV }, maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60 * 1000 }, (err, stdout, stderr) => {
       try {
         const j = JSON.parse(stdout);
         resolve({ isError: !!j.is_error, response: j.result ?? "", tokens: j.usage?.output_tokens ?? 0, durationMs: j.duration_ms ?? 0, numTurns: j.num_turns ?? 0 });
@@ -97,7 +102,10 @@ async function runTrial(rung, effort, trial) {
     call = await claudeCall(rung.brief, effort, { cwd: sandbox, agentic: true });
     grade = gradeAgentic(rung, sandbox);
   } else {
-    call = await claudeCall(rung.brief, effort, { cwd: ROOT, agentic: false });
+    // empty scratch dir, never the repo — a oneshot session inherits no project identity
+    const oneshotDir = join(SANDBOX_ROOT, "oneshot");
+    mkdirSync(oneshotDir, { recursive: true });
+    call = await claudeCall(rung.brief, effort, { cwd: oneshotDir, agentic: false });
     grade = gradeOneshot(rung, call.response);
   }
   const record = {

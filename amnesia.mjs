@@ -85,8 +85,12 @@ const recPath = (cond, trial) => join(RESULTS, "raw", `${cond}__${effort}__t${tr
 function claudeCall(prompt, cwd) {
   const args = ["-p", prompt, "--model", model, "--effort", effort, "--output-format", "json",
     "--max-turns", "40", "--dangerously-skip-permissions", "--allowedTools", "Read,Edit,Write,Glob,Grep"];
+  // --container: hermetic run via docker (OrbStack) — see Dockerfile
+  const [bin, argv] = opts.container
+    ? ["docker", ["run", "--rm", "-v", `${cwd}:/work`, "-v", "lob-claude-auth:/root/.claude", "lob-runner", ...args]]
+    : ["claude", args];
   return new Promise((resolve) => {
-    execFile("claude", args, { cwd, env: { ...process.env, PATH: PATH_ENV }, maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60 * 1000 }, (err, stdout, stderr) => {
+    execFile(bin, argv, { cwd, env: { ...process.env, PATH: PATH_ENV }, maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60 * 1000 }, (err, stdout, stderr) => {
       try {
         const j = JSON.parse(stdout);
         resolve({ isError: !!j.is_error, tokens: j.usage?.output_tokens ?? 0, durationMs: j.duration_ms ?? 0, numTurns: j.num_turns ?? 0 });
